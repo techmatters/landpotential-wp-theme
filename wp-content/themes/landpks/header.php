@@ -1,4 +1,13 @@
-<!DOCTYPE html> 
+<?php
+/**
+ * The template for header pages
+ *
+ * @package LandPKS
+ */
+
+?>
+
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />

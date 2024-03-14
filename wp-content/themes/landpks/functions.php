@@ -1,4 +1,10 @@
 <?php
+/**
+ * LandPKS functions and definitions.
+ *
+ * @package LandPKS
+ * @since   1.0.0
+ */
 
 
 // Divi adjustments

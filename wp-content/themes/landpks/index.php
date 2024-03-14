@@ -1,7 +1,11 @@
 <?php
+/**
+ * The template for page headers.
+ *
+ * @package LandPKS
+ */
 
 get_header();
-
 ?>
 
 <div id="main-content"><!-- archive -->

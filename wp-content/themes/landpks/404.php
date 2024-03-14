@@ -1,4 +1,14 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying 404 pages (not found)
+ *
+ * @link    https://codex.wordpress.org/Creating_an_Error_404_Page
+ *
+ * @package LandPKS
+ */
+
+get_header();
+?>
 <div class="entry-content not-found">
 	<?php echo do_shortcode( '[et_pb_section global_module="13972"][/et_pb_section]' ); ?>
 </div>
@@ -19,5 +29,5 @@
 	<?php echo do_shortcode( '[et_pb_section global_module="502"][/et_pb_section]' ); ?>
 	<?php echo do_shortcode( '[et_pb_section global_module="503"][/et_pb_section]' ); ?>
 </div>
- 
+
 <?php get_footer(); ?>
