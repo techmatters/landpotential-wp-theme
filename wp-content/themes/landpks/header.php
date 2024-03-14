@@ -203,7 +203,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 							'fallback_cb'    => '',
 							'echo'           => false,
 							'items_wrap'     => '%3$s',
-						] 
+						]
 					);
 					$slide_nav .= wp_nav_menu(
 						[
@@ -212,7 +212,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 							'fallback_cb'    => '',
 							'echo'           => false,
 							'items_wrap'     => '%3$s',
-						] 
+						]
 					);
 				?>
 
@@ -222,7 +222,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 				if ( '' === $slide_nav ) :
 					?>
 					<?php if ( 'on' === et_get_option( 'divi_home_link' ) ) { ?>
-							<li 
+							<li
 							<?php
 							if ( is_home() ) {
 								echo( 'class="current_page_item"' );}
@@ -363,7 +363,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 						et_show_cart_total(
 							[
 								'no_text' => true,
-							] 
+							]
 						);
 					}
 					?>
