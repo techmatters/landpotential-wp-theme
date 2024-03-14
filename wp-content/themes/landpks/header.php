@@ -74,12 +74,18 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 			<?php if ( $et_contact_info_defined ) : ?>
 
 				<div id="et-info">
-				<?php if ( '' !== ( $et_phone_number = et_get_option( 'phone_number' ) ) ) : ?>
-					<span id="et-info-phone"><?php echo et_core_esc_previously( et_sanitize_html_input_text( $et_phone_number ) ); ?></span>
+				<?php
+					$et_phone_number = et_get_option( 'phone_number' );
+				if ( $et_phone_number ) :
+					?>
+					<span id="et-info-phone"><?php echo esc_html( et_sanitize_html_input_text( $et_phone_number ) ); ?></span>
 				<?php endif; ?>
 
-				<?php if ( '' !== ( $et_email = et_get_option( 'header_email' ) ) ) : ?>
-					<a href="<?php echo esc_attr( 'mailto:' . $et_email ); ?>"><span id="et-info-email"><?php echo esc_html( $et_email ); ?></span></a>
+				<?php
+					$et_email = et_get_option( 'header_email' );
+				if ( $et_email ) :
+					?>
+					<a href="<?php echo esc_url( 'mailto:' . $et_email ); ?>"><span id="et-info-email"><?php echo esc_html( $et_email ); ?></span></a>
 				<?php endif; ?>
 
 				<?php
@@ -134,9 +140,9 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 				et_show_cart_total();
 			?>
 			<?php if ( false !== et_get_option( 'show_search_icon', true ) || is_customize_preview() ) : ?>
-				<?php if ( 'fullscreen' !== et_get_option( 'header_style', 'left' ) ) { ?>
+				<?php if ( 'fullscreen' !== et_get_option( 'header_style', 'left' ) ) : ?>
 					<div class="clear"></div>
-				<?php } ?>
+				<?php endif; ?>
 				<form role="search" method="get" class="et-search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 					<?php
 						printf(
@@ -160,12 +166,18 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 			<?php if ( $et_contact_info_defined ) : ?>
 
 				<div id="et-info">
-				<?php if ( '' !== ( $et_phone_number = et_get_option( 'phone_number' ) ) ) : ?>
-					<span id="et-info-phone"><?php echo et_core_esc_previously( et_sanitize_html_input_text( $et_phone_number ) ); ?></span>
+				<?php
+				$et_phone_number = et_get_option( 'phone_number' );
+				if ( $et_phone_number ) :
+					?>
+					<span id="et-info-phone"><?php echo esc_html( et_sanitize_html_input_text( $et_phone_number ) ); ?></span>
 				<?php endif; ?>
 
-				<?php if ( '' !== ( $et_email = et_get_option( 'header_email' ) ) ) : ?>
-					<a href="<?php echo esc_attr( 'mailto:' . $et_email ); ?>"><span id="et-info-email"><?php echo esc_html( $et_email ); ?></span></a>
+				<?php
+					$et_email = et_get_option( 'header_email' );
+				if ( $et_email ) :
+					?>
+					<a href="<?php echo esc_url( 'mailto:' . $et_email ); ?>"><span id="et-info-email"><?php echo esc_html( $et_email ); ?></span></a>
 				<?php endif; ?>
 				</div> <!-- #et-info -->
 
