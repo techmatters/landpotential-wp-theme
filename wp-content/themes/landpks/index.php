@@ -7,7 +7,10 @@ get_header();
 <div id="main-content"><!-- archive -->
 
 		<div class="entry-content">
-<?php while ( have_posts() ) : the_post(); ?>
+<?php
+while ( have_posts() ) :
+	the_post();
+	?>
 
 
 		<?php
