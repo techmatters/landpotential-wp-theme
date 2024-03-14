@@ -111,7 +111,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 		 *
 		 * @param string $top_header
 		 */
-		echo et_core_intentionally_unescaped( apply_filters( 'et_html_top_header', $top_header ), 'html' );
+		echo wp_kses_post( apply_filters( 'et_html_top_header', $top_header ) );
 		?>
 	<?php endif; ?>
 
@@ -234,7 +234,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 					<?php show_categories_menu( $slide_menu_class, false ); ?>
 					<?php
 					else :
-						echo et_core_esc_wp( $slide_nav );
+						echo wp_kses_post( $slide_nav );
 					endif;
 					?>
 
@@ -251,7 +251,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 		 *
 		 * @param string $top_header
 		 */
-		echo et_core_intentionally_unescaped( apply_filters( 'et_html_slide_header', $slide_header ), 'html' );
+		echo wp_kses_post( apply_filters( 'et_html_slide_header', $slide_header ), 'html' );
 		?>
 	<?php endif; ?>
 
@@ -304,12 +304,12 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 						'<div class="et_duplicate_social_icons">
 								%1$s
 							</div>',
-						et_core_esc_previously( $duplicate_social_icons )
+						wp_kses_post( $duplicate_social_icons )
 					);
 				}
 
 				if ( $et_secondary_nav ) {
-					echo et_core_esc_wp( $et_secondary_nav );
+					echo wp_kses_post( $et_secondary_nav );
 				}
 
 					et_show_cart_total();
@@ -353,7 +353,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 							</ul>
 							<?php
 							else :
-								echo et_core_esc_wp( $primary_nav );
+								echo wp_kses_post( $primary_nav );
 							endif;
 							?>
 						</nav>
