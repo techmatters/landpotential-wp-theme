@@ -219,7 +219,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 				<ul id="mobile_menu_slide" class="<?php echo esc_attr( $slide_menu_class ); ?>">
 
 				<?php
-				if ( '' === $slide_nav ) :
+				if ( empty( $slide_nav ) ) :
 					?>
 					<?php if ( 'on' === et_get_option( 'divi_home_link' ) ) { ?>
 							<li
