@@ -303,27 +303,27 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 					<?php if ( ! $et_slide_header || is_customize_preview() ) : ?>
 						<nav id="top-menu-nav">
 						<?php
-							$menuClass = 'nav';
+							$menu_class = 'nav';
 						if ( 'on' === et_get_option( 'divi_disable_toptier' ) ) {
-							$menuClass .= ' et_disable_top_tier';
+							$menu_class .= ' et_disable_top_tier';
 						}
-							$primaryNav = '';
+							$primary_nav = '';
 
-							$primaryNav = wp_nav_menu(
+							$primary_nav = wp_nav_menu(
 								[
 									'theme_location' => 'primary-menu',
 									'container'      => '',
 									'fallback_cb'    => '',
-									'menu_class'     => $menuClass,
+									'menu_class'     => $menu_class,
 									'menu_id'        => 'top-menu',
 									'echo'           => false,
-								] 
+								]
 							);
-						if ( empty( $primaryNav ) ) :
+						if ( empty( $primary_nav ) ) :
 							?>
-							<ul id="top-menu" class="<?php echo esc_attr( $menuClass ); ?>">
+							<ul id="top-menu" class="<?php echo esc_attr( $menu_class ); ?>">
 							<?php if ( 'on' === et_get_option( 'divi_home_link' ) ) { ?>
-									<li 
+									<li
 									<?php
 									if ( is_home() ) {
 										echo( 'class="current_page_item"' );}
@@ -331,12 +331,12 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 									><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'Divi' ); ?></a></li>
 								<?php } ?>
 
-							<?php show_page_menu( $menuClass, false, false ); ?>
-							<?php show_categories_menu( $menuClass, false ); ?>
+							<?php show_page_menu( $menu_class, false, false ); ?>
+							<?php show_categories_menu( $menu_class, false ); ?>
 							</ul>
 							<?php
 							else :
-								echo et_core_esc_wp( $primaryNav );
+								echo et_core_esc_wp( $primary_nav );
 							endif;
 							?>
 						</nav>
