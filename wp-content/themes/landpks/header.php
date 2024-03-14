@@ -308,7 +308,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 					);
 				}
 
-				if ( '' !== $et_secondary_nav ) {
+				if ( $et_secondary_nav ) {
 					echo et_core_esc_wp( $et_secondary_nav );
 				}
 
