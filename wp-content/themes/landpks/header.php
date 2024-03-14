@@ -424,7 +424,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 		 *
 		 * @param string $main_header
 		 */
-		echo et_core_intentionally_unescaped( apply_filters( 'et_html_main_header', $main_header ), 'html' );
+		echo wp_kses_post( apply_filters( 'et_html_main_header', $main_header ) );
 	?>
 		<div id="et-main-area">
 	<?php
