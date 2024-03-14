@@ -259,7 +259,8 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 		<header id="main-header" data-height-onload="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>">
 			<div class="container clearfix et_menu_container">
 			<?php
-				$logo = ( $user_logo = et_get_option( 'divi_logo' ) ) && ! empty( $user_logo )
+				$user_logo = et_get_option( 'divi_logo' );
+				$logo      = ! empty( $user_logo )
 					? $user_logo
 					: $template_directory_uri . '/images/logo.png';
 
