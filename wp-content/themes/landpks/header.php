@@ -95,7 +95,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 				?>
 				</div> <!-- #et-info -->
 
-			<?php endif; // true === $et_contact_info_defined ?>
+			<?php endif; ?>
 
 				<!-- LandPKS - Move #et-secondary-menu from this location -->
 
@@ -113,7 +113,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 		 */
 		echo et_core_intentionally_unescaped( apply_filters( 'et_html_top_header', $top_header ), 'html' );
 		?>
-	<?php endif; // true ==== $et_top_info_defined ?>
+	<?php endif; ?>
 
 	<?php if ( $et_slide_header || is_customize_preview() ) : ?>
 		<?php ob_start(); ?>
@@ -161,7 +161,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 					?>
 					<button type="submit" id="searchsubmit_header"></button>
 				</form>
-			<?php endif; // true === et_get_option( 'show_search_icon', false ) ?>
+			<?php endif; ?>
 
 			<?php if ( $et_contact_info_defined ) : ?>
 
@@ -181,7 +181,8 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 				<?php endif; ?>
 				</div> <!-- #et-info -->
 
-			<?php endif; // true === $et_contact_info_defined ?>
+			<?php endif; ?>
+
 			<?php if ( $et_contact_info_defined || true === $show_header_social_icons || false !== et_get_option( 'show_search_icon', true ) || class_exists( 'woocommerce' ) || is_customize_preview() ) { ?>
 				<?php if ( 'fullscreen' === et_get_option( 'header_style', 'left' ) ) { ?>
 					</div> <!-- .et_pb_top_menu_inner -->
@@ -252,7 +253,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 		 */
 		echo et_core_intentionally_unescaped( apply_filters( 'et_html_slide_header', $slide_header ), 'html' );
 		?>
-	<?php endif; // true ==== $et_slide_header ?>
+	<?php endif; ?>
 
 	<?php ob_start(); ?>
 		<header id="main-header" data-height-onload="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>">
@@ -375,7 +376,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 					<div id="et_top_search">
 						<span id="et_search_icon"></span>
 					</div>
-					<?php endif; // true === et_get_option( 'show_search_icon', false ) ?>
+					<?php endif; ?>
 
 					<?php
 
