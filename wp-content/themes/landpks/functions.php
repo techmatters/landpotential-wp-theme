@@ -8,5 +8,5 @@
 
 define( 'THEME_VERSION', '1.0.0' );
 
-require_once __DIR__ . '/class-lpks.php';
+require_once __DIR__ . '/class-landpks.php';
 require_once __DIR__ . '/includes/class-newsletter.php';
