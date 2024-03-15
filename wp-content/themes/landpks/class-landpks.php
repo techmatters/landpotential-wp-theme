@@ -17,7 +17,7 @@ class LandPKS {
 	 */
 	public static function hooks() {
 		add_action( 'intermediate_image_sizes_advanced', [ __CLASS__, 'remove_extra_image_sizes' ] );
-		add_filter( 'et_project_posttype_args', [ __CLASS__, 'project_posttype_args', 10, 1 ] );
+		add_filter( 'et_project_posttype_args', [ __CLASS__, 'project_posttype_args' ], 10, 1 );
 	}
 
 	/**
