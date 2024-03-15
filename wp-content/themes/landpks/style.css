@@ -684,7 +684,7 @@ img.app-link {
 .single-meta .wp-block-column {
 	margin-bottom: 20px;
 	padding-left: 28px;
-	background: url(img/category-black.svg) top left no-repeat;
+	background: url(assets/img/category-black.svg) top left no-repeat;
 	background-size: 16px;
 }
 .single-meta h3 {
@@ -911,7 +911,7 @@ body a.et_pb_button.plain:hover:after {
 }
 .archive-meta .cat a {
 	display: block;
-	background-image: url(img/category.svg);
+	background-image: url(assets/img/category.svg);
 	background-repeat: no-repeat;
 	background-position: 0 4px;
 	background-size: 15px 18px;
@@ -921,7 +921,7 @@ body a.et_pb_button.plain:hover:after {
 }
 .archive-meta .tag a {
 	display: block;
-	background-image: url(img/tag.svg);
+	background-image: url(assets/img/tag.svg);
 	background-repeat: no-repeat;
 	background-position: 0 4px;
 	background-size: 15px 15px;
@@ -1039,24 +1039,24 @@ body a.et_pb_button.plain:hover:after {
 	text-transform: uppercase;
 }
 h6.cat-icon {
-	background-image: url(img/category.svg);
+	background-image: url(assets/img/category.svg);
 	background-size: 14px;
 	background-repeat: no-repeat;
 	background-position: left;
 	padding-left: 28px;
 }
 h6.tag-icon {
-	background-image: url(img/tag.svg);
+	background-image: url(assets/img/tag.svg);
 	background-size: 14px;
 	background-repeat: no-repeat;
 	background-position: left;
 	padding-left: 28px;
 }
 .single-meta-list h6.cat-icon {
-	background-image: url(img/cat-black.svg);
+	background-image: url(assets/img/cat-black.svg);
 }
 .single-meta-list h6.tag-icon {
-	background-image: url(img/tag-black.svg);
+	background-image: url(assets/img/tag-black.svg);
 }
 
 /* Archive */
