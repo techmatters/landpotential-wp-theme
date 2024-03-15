@@ -28,7 +28,7 @@ class Newsletter_Settings extends Settings {
 	public static function register_settings() {
 		add_settings_section(
 			'hubpot_section',
-			'HubSpt',
+			'HubSpot',
 			false,
 			static::FIELD_GROUP
 		);
