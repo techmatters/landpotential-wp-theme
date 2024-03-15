@@ -19,17 +19,39 @@ class Newsletter {
 	const JSON_ERROR               = 4;
 	const NO_CONTACT_FOUND         = 5;
 
+
+	const FIELD_NAME = 'newsletter_form';
+	const NONCE_KEY  = 'newsletter_form_nonce';
+
 	/**
 	 * Add actions and filters.
 	 */
 	public static function hooks() {
+		add_shortcode( 'inline-form', [ __CLASS__, 'render_inline_form' ] );
+		add_action( 'wp_ajax_subscribe_form', [ __CLASS__, 'subscribe_form' ] );
+		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_scripts' ] );
+	}
+
+	/**
+	 * Enqueue frontend scripts and styles.
+	 */
+	public static function enqueue_scripts() {
+		$ext = defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? 'src' : 'min';
+
+		wp_enqueue_script(
+			'newsletter',
+			get_stylesheet_directory_uri() . "/assets/js/newsletter.{$ext}.js",
+			[ 'jquery' ],
+			THEME_VERSION,
+			false
+		);
 	}
 
 	/**
 	 * Generate headers needed by HubSpot API.
 	 *
 	 * @throws Exception If no API token found.
-	 * @return array  Array of Authorization and Content-Type headers.
+	 * @return array     Array of Authorization and Content-Type headers.
 	 */
 	private static function headers() {
 		$token = get_option( 'lpks_hubspot_token' );
@@ -46,7 +68,7 @@ class Newsletter {
 	 * Get HubSpot list id for this newsletter.
 	 *
 	 * @throws Exception If no API token found.
-	 * @return in   HubSpot list identifier.
+	 * @return int       HubSpot list identifier.
 	 */
 	private static function list_id() {
 		$list_id = intval( get_option( 'lpks_hubspot_list_id' ) );
@@ -129,6 +151,26 @@ class Newsletter {
 		} elseif ( $result['invalidEmails'] ) {
 			return self::SUBSCRIBE_ERROR_INVALID;
 		}
+	}
+
+	public static function subscribe_form() {
+		if ( ! check_ajax_referer( self::FIELD_NAME, self::NONCE_KEY, true ) ) {
+			wp_send_json_error();
+		}
+
+		wp_send_json_success();
+	}
+
+	/**
+	 * Render inline hubspot form.
+	 *
+	 * @return string
+	 */
+	public static function render_inline_form() {
+		ob_start();
+		get_template_part( 'template-parts/form-inline' );
+
+		return ob_get_clean();
 	}
 }
 
