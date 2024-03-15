@@ -1,9 +1,9 @@
-/* 
+/*
 Theme Name: LandPKS
 Author:  Merge Studio, LLC
 Author URI: https://merge.studio
 Template: Divi
-Version: 1.0 
+Version: 1.0
 Description: A custom theme based on the Divi framework.
 Tags: responsive-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, featured-images, full-width-template, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready
 License: GNU General Public License v3
@@ -95,9 +95,9 @@ sup, sub {
 	font-size: 70%;
 }
 
-.entry-content ol, 
+.entry-content ol,
 .entry-content ul,
-#left-area ol, 
+#left-area ol,
 #left-area ul {
 	display: inline-block;
 	list-style-position: outside;
@@ -105,9 +105,9 @@ sup, sub {
 	padding: 0 0 0 40px;
 	margin: 0 0 1em 0;
 }
-.entry-content ol li, 
+.entry-content ol li,
 .entry-content ul li,
-#left-area ol li, 
+#left-area ol li,
 #left-area ul li {
 	margin-bottom: .5em;
 }
@@ -241,8 +241,8 @@ body.et-db #et-boc .et-l .et_pb_button:hover,
 	text-decoration: none;
 	cursor: pointer;
 }
-.et_pb_button:after, 
-.et_pb_more_button:after, 
+.et_pb_button:after,
+.et_pb_more_button:after,
 .et_pb_promo_button:after,
 .et_button_custom_icon .et_pb_button:after,
 body.et-db #et-boc .et-l .et_pb_button:after
@@ -251,8 +251,8 @@ body.et-db #et-boc .et-l .et_pb_button:after
 	line-height: 16px !important;
 	font-size: 20px !important;
 }
-.et_pb_button:hover:after, 
-.et_pb_more_button:hover:after, 
+.et_pb_button:hover:after,
+.et_pb_more_button:hover:after,
 .et_pb_promo_button:hover:after,
 .et_button_custom_icon .et_pb_button:hover:after,
 body.et-db #et-boc .et-l .et_pb_button:hover:after {
@@ -348,12 +348,12 @@ body.et_pb_button_helper_class .et_pb_bg_layout_dark .et_pb_button.outline:hover
 }
 
 /* Forms */
-input[type=text], 
-input[type=password], 
-input[type=tel], 
-input[type=email], 
-input.text, 
-input.title, 
+input[type=text],
+input[type=password],
+input[type=tel],
+input[type=email],
+input.text,
+input.title,
 textarea,
 select {
 	width: 100%;
@@ -521,7 +521,7 @@ img.app-link {
 	width: 80%;
 	font-size: 11px !important;
 	line-height: 1.1;
-	text-shadow: 1px 1px 3px rgba(0,0,0,.5); 
+	text-shadow: 1px 1px 3px rgba(0,0,0,.5);
 	font-weight: 500;
 }
 .worldwide ul {
@@ -836,7 +836,7 @@ body a.et_pb_button.plain:hover:after {
 .reset, .reset p {
 	display: inline;
 }
-.wp-block-toolset-views-custom-search-container .wpv-submit-trigger, 
+.wp-block-toolset-views-custom-search-container .wpv-submit-trigger,
 [data-type="toolset-views/custom-search-submit"] .wpv-submit-trigger {
 	display: inline-block;
 	background-color: #fff;
@@ -851,9 +851,9 @@ body a.et_pb_button.plain:hover:after {
 	margin: 28px 10px 0 0;
 	border: 1px solid #fff;
 }
-.wp-block-toolset-views-custom-search-container .wpv-submit-trigger:hover, 
+.wp-block-toolset-views-custom-search-container .wpv-submit-trigger:hover,
 [data-type="toolset-views/custom-search-submit"] .wpv-submit-trigger:hover,
-.wp-block-toolset-views-custom-search-container .wpv-reset-trigger:hover, 
+.wp-block-toolset-views-custom-search-container .wpv-reset-trigger:hover,
 [data-type="toolset-views/custom-reset-submit"] .wpv-reset-trigger:hover {
 	background-color: #00a2c7;
 	border-color: #00a2c7;
@@ -950,10 +950,10 @@ body a.et_pb_button.plain:hover:after {
 .entry-content ul.wpv-archive-pagination-nav-links-container li.wpv-archive-pagination-nav-links-item {
 	display: inline-block;
 }
-.wpv-archive-pagination-nav-links-container .page-link, 
-.wpv-archive-pagination-nav-links .page-link, 
-.wpv-pagination-nav-links-container .page-link, 
-.wpv-pagination-nav-links .page-link, 
+.wpv-archive-pagination-nav-links-container .page-link,
+.wpv-archive-pagination-nav-links .page-link,
+.wpv-pagination-nav-links-container .page-link,
+.wpv-pagination-nav-links .page-link,
 .wpv-pagination-preview-element .page-link,
 .wpv-pagination-previous-next-buttons .page-link {
 	display: block;
@@ -975,36 +975,36 @@ body a.et_pb_button.plain:hover:after {
 .wpv-pagination-previous-next-buttons .page-link.wpv-archive-pagination-prev-link {
 	float: right;
 }
-.wpv-archive-pagination-nav-links-container a.page-link:focus, 
-.wpv-archive-pagination-nav-links-container a.page-link:hover, 
-.wpv-archive-pagination-nav-links a.page-link:focus, 
-.wpv-archive-pagination-nav-links a.page-link:hover, .wpv-pagination-nav-links-container a.page-link:focus, 
-.wpv-pagination-nav-links-container a.page-link:hover, .wpv-pagination-nav-links a.page-link:focus, .wpv-pagination-nav-links a.page-link:hover, .wpv-pagination-preview-element a.page-link:focus, 
+.wpv-archive-pagination-nav-links-container a.page-link:focus,
+.wpv-archive-pagination-nav-links-container a.page-link:hover,
+.wpv-archive-pagination-nav-links a.page-link:focus,
+.wpv-archive-pagination-nav-links a.page-link:hover, .wpv-pagination-nav-links-container a.page-link:focus,
+.wpv-pagination-nav-links-container a.page-link:hover, .wpv-pagination-nav-links a.page-link:focus, .wpv-pagination-nav-links a.page-link:hover, .wpv-pagination-preview-element a.page-link:focus,
 .wpv-pagination-preview-element a.page-link:hover,
 .wpv-pagination-previous-next-buttons a.page-link:hover {
 	background-color: #00a2c7;
 	color: #fff;
 	opacity: .8;
 }
-.wpv-archive-pagination-nav-links-container .page-link.wpv-archive-pagination-link-current, 
-.wpv-archive-pagination-nav-links .page-link.wpv-archive-pagination-link-current, 
-.wpv-pagination-nav-links-container .page-link.wpv-archive-pagination-link-current, 
-.wpv-pagination-nav-links .page-link.wpv-archive-pagination-link-current, 
+.wpv-archive-pagination-nav-links-container .page-link.wpv-archive-pagination-link-current,
+.wpv-archive-pagination-nav-links .page-link.wpv-archive-pagination-link-current,
+.wpv-pagination-nav-links-container .page-link.wpv-archive-pagination-link-current,
+.wpv-pagination-nav-links .page-link.wpv-archive-pagination-link-current,
 .wpv-pagination-preview-element .page-link.wpv-archive-pagination-link-current {
 	background-color: #fff;
 	color: #00a2c7;
 }
-.wpv-archive-pagination-nav-links-container .page-link.wpv-archive-pagination-links-prev-link, 
-.wpv-archive-pagination-nav-links-container .page-link.wpv-archive-pagination-links-next-link, 
-.wpv-archive-pagination-nav-links .page-link.wpv-archive-pagination-links-prev-link, 
-.wpv-archive-pagination-nav-links .page-link.wpv-archive-pagination-links-next-link, 
-.wpv-pagination-nav-links-container .page-link.wpv-archive-pagination-links-prev-link, 
-.wpv-pagination-nav-links-container .page-link.wpv-archive-pagination-links-next-link, 
-.wpv-pagination-nav-links .page-link.wpv-archive-pagination-links-prev-link, 
-.wpv-pagination-nav-links .page-link.wpv-archive-pagination-links-next-link, 
+.wpv-archive-pagination-nav-links-container .page-link.wpv-archive-pagination-links-prev-link,
+.wpv-archive-pagination-nav-links-container .page-link.wpv-archive-pagination-links-next-link,
+.wpv-archive-pagination-nav-links .page-link.wpv-archive-pagination-links-prev-link,
+.wpv-archive-pagination-nav-links .page-link.wpv-archive-pagination-links-next-link,
+.wpv-pagination-nav-links-container .page-link.wpv-archive-pagination-links-prev-link,
+.wpv-pagination-nav-links-container .page-link.wpv-archive-pagination-links-next-link,
+.wpv-pagination-nav-links .page-link.wpv-archive-pagination-links-prev-link,
+.wpv-pagination-nav-links .page-link.wpv-archive-pagination-links-next-link,
 .wpv-pagination-preview-element .page-link.wpv-archive-pagination-links-prev-link,
 .wpv-pagination-preview-element .page-link.wpv-archive-pagination-links-next-link,
-.wpv-pagination-previous-next-buttons .page-link, 
+.wpv-pagination-previous-next-buttons .page-link,
 .wpv-pagination-previous-next-preview-element .page-link {
 	width: auto;
 	padding: 0 24px;
@@ -1250,7 +1250,7 @@ body .et_pb_bg_layout_light form input[type="submit"].et_pb_button.signup:hover 
 
 
 @media screen and (min-width: 981px) {
-	.et_pb_gutters1 .et_pb_column_2_3 .et_pb_module, 
+	.et_pb_gutters1 .et_pb_column_2_3 .et_pb_module,
 	.et_pb_gutters1.et_pb_row .et_pb_column_2_3 .et_pb_module {
 		margin-bottom: 2.284%;
 	}
@@ -1282,9 +1282,9 @@ body .et_pb_bg_layout_light form input[type="submit"].et_pb_button.signup:hover 
 		font-size: 16px;
 	}
 	/* Fixed mobile menu */
-	.et_non_fixed_nav.et_transparent_nav #main-header, 
-	.et_non_fixed_nav.et_transparent_nav #top-header, 
-	.et_fixed_nav #main-header, 
+	.et_non_fixed_nav.et_transparent_nav #main-header,
+	.et_non_fixed_nav.et_transparent_nav #top-header,
+	.et_fixed_nav #main-header,
 	.et_fixed_nav #top-header {
 	    position: fixed;
 	}
@@ -1307,12 +1307,12 @@ body .et_pb_bg_layout_light form input[type="submit"].et_pb_button.signup:hover 
 		top: 19px;
 		font-size: 20px;
 	}
-	input[type=text], 
-	input[type=password], 
-	input[type=tel], input[type=email], 
-	input.text, 
-	input.title, 
-	textarea, 
+	input[type=text],
+	input[type=password],
+	input[type=tel], input[type=email],
+	input.text,
+	input.title,
+	textarea,
 	select,
 	form input[type="submit"] {
 		width: 100% !important;
@@ -1369,7 +1369,7 @@ body .et_pb_bg_layout_light form input[type="submit"].et_pb_button.signup:hover 
 	}
 	.archive-detail {
 		width: 100%;
-	}	
+	}
 	.archive-detail .left,
 	.archive-meta {
 		width: 100%;
