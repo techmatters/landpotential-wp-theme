@@ -23,7 +23,6 @@ class Newsletter {
 	 * Add actions and filters.
 	 */
 	public static function hooks() {
-		add_action( 'init', [ __CLASS__, 'register_post_type' ] );
 	}
 
 	/**
