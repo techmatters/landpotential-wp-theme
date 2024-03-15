@@ -6,38 +6,6 @@
  * @since   1.0.0
  */
 
-/**
- * Divi adjustments. Hide internal project post type.
- *
- * @param array $args              Array of post type arguments.
- */
-function mytheme_et_project_posttype_args( $args ) {
-	return array_merge(
-		$args,
-		[
-			'public'              => false,
-			'exclude_from_search' => false,
-			'publicly_queryable'  => false,
-			'show_in_nav_menus'   => false,
-			'show_ui'             => false,
-		]
-	);
-}
+define( 'THEME_VERSION', '1.0.0' );
 
-/**
- * Remove unnecessary Divi image sizes.
- *
- * @param array $sizes              Array of image sizes.
- */
-function cp_remove_extra_image_sizes( $sizes ) {
-	unset( $sizes['et-pb-portfolio-image'] );
-	unset( $sizes['et-pb-portfolio-module-image'] );
-	unset( $sizes['et-pb-portfolio-image-single'] );
-	unset( $sizes['et-pb-gallery-module-image-portrait'] );
-	unset( $sizes['et-pb-gallery-module-image-portrait'] );
-	unset( $sizes['et-pb-gallery-module-image-portrait'] );
-	return $sizes;
-}
-
-add_action( 'intermediate_image_sizes_advanced', 'cp_remove_extra_image_sizes' );
-add_filter( 'et_project_posttype_args', 'mytheme_et_project_posttype_args', 10, 1 );
+require_once __DIR__ . '/class-lpks.php';
