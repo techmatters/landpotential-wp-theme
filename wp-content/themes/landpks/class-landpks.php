@@ -16,8 +16,18 @@ class LandPKS {
 	 * Add actions and filters.
 	 */
 	public static function hooks() {
+		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_scripts' ] );
 		add_action( 'intermediate_image_sizes_advanced', [ __CLASS__, 'remove_extra_image_sizes' ] );
 		add_filter( 'et_project_posttype_args', [ __CLASS__, 'project_posttype_args' ], 10, 1 );
+	}
+
+	/**
+	 * Enqueue frontend scripts and styles.
+	 */
+	public static function enqueue_scripts() {
+		$ext = defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? 'src' : 'min';
+
+		wp_enqueue_style( 'main', get_stylesheet_directory_uri() . "/assets/css/main.{$ext}.css", [], THEME_VERSION );
 	}
 
 	/**
