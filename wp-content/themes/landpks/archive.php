@@ -3,6 +3,7 @@
  * The template for archive pages
  *
  * @package LandPKS
+ * @since   1.0.0
  */
 
 get_header();

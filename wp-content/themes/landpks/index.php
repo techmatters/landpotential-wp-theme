@@ -3,6 +3,7 @@
  * The template for page headers.
  *
  * @package LandPKS
+ * @since   1.0.0
  */
 
 get_header();
