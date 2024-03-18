@@ -205,7 +205,6 @@ class Newsletter {
 		$result = self::subscribe( $email, $first_name, $last_name );
 		if ( self::SUBSCRIBE_SUCCESS === $result ) {
 			wp_send_json_success();
-			return;
 		}
 
 		$data = [ 'error_code' => $result ];
