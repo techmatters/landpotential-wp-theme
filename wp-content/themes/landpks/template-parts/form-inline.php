@@ -3,6 +3,7 @@
  * The template for displaying inline newsletter forms.
  *
  * @package LandPKS
+ * @since   1.0.0
  */
 
 ?>

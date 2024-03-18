@@ -2,6 +2,7 @@
 /**
  * Initialize and verify Google ReCAPTCHA.
  *
+ * @package LandPKS
  * @since 1.0.0
  */
 

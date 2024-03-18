@@ -3,6 +3,7 @@
  * Newsletter forms for LandPKS
  *
  * @package LandPKS
+ * @since   1.0.0
  */
 
 /**

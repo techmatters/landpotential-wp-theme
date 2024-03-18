@@ -1,6 +1,6 @@
 <?php
 /**
- * Terraso site core functions.
+ * Landpotential site core functions.
  *
  * @package LandPKS
  * @since   1.0.0

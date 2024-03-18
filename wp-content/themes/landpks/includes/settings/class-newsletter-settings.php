@@ -2,7 +2,8 @@
 /**
  * Configure the Newsletter settings page.
  *
- * @since 1.0.0
+ * @package LandPKS
+ * @since   1.0.0
  */
 
 /**

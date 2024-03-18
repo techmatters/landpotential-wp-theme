@@ -2,7 +2,8 @@
 /**
  * Base class for settings pages.
  *
- * @since 1.0.0
+ * @package LandPKS
+ * @since   1.0.0
  */
 
 /**
