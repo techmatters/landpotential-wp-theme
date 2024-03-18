@@ -7,6 +7,7 @@ window.lpks = {
 
 	processSubscription: function( event ) {
 		event.preventDefault();
+
 		jQuery.ajax( {
 			type: 'POST',
 			url: localize._ajax_url,
@@ -28,6 +29,9 @@ window.lpks = {
 						errorMessage += ` (${res?.data?.error_message})`;
 					}
 					event.target.querySelector( '.message' ).textContent = errorMessage;
+
+					// Reset the CAPTCHA after a failure.
+					window.lpks.gcaptchaHandler();
 				}
 			}
 		} );
@@ -38,7 +42,7 @@ window.lpks = {
 
 		if ( subscribeForm ) {
 			subscribeForm.addEventListener( 'submit', window.lpks.processSubscription );
-			window.lpks.gcaptchaHandler();
+			grecaptcha.ready( window.lpks.gcaptchaHandler );
 		}
 	}
 };

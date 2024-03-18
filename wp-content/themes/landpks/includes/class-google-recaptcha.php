@@ -58,7 +58,7 @@ class Google_Recaptcha {
 		}
 
 		// Don't set a resource version here. We don't want query parameters passed to Google.
-		wp_enqueue_script( 'recaptcha', add_query_arg( 'render', self::get_site_key(), 'https://www.google.com/recaptcha/api.js?render=' ), [], null, [] ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+		wp_enqueue_script( 'recaptcha', add_query_arg( 'render', self::get_site_key(), 'https://www.google.com/recaptcha/api.js' ), [], null, [] ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 	}
 
 	/**
