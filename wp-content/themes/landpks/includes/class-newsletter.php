@@ -46,6 +46,23 @@ class Newsletter {
 			THEME_VERSION,
 			false
 		);
+
+		wp_localize_script(
+			'newsletter',
+			'localize',
+			[
+				'_ajax_url'   => admin_url( 'admin-ajax.php' ),
+				'_ajax_nonce' => wp_create_nonce( self::FIELD_NAME ),
+				'success'     => 'Thank you for subscribing to the LandPKS newsletter.',
+				'error_codes' => [
+					self::SUBSCRIBE_ERROR_EXISTING => 'You’re already subscribed to the LandPKS newsletter.',
+					self::SUBSCRIBE_ERROR_INVALID  => 'Please supply a valid email address',
+					self::JSON_ERROR               => 'Unable to parse JSON result.',
+					self::NO_CONTACT_FOUND         => 'Unable to find valid HubSpot contact ID.',
+					self::MISSING_EMAIL            => 'Please supply an email address',
+				],
+			]
+		);
 	}
 
 	/**
