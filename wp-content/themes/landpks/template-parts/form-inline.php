@@ -19,8 +19,6 @@
 			<label class="screen-reader">Email address</label><input type="email" name="email" placeholder="Email address *" required="required">
 		</div>
 		<div class="signup-input">
-			<?php wp_nonce_field( Newsletter::FIELD_NAME, Newsletter::NONCE_KEY ); ?>
-
 			<input id="recaptcha-token" type="hidden" name="token" />
 			<input type="submit" class="et_pb_button signup g-recaptcha" value="Get Updates" data-sitekey="<?php echo esc_attr( Google_Recaptcha::get_site_key() ); ?>" data-callback='lpksSubmitSubscribeForm' data-action='submit' />
 		</div>
