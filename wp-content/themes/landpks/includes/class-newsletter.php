@@ -19,6 +19,7 @@ class Newsletter {
 	const SUBSCRIBE_ERROR_INVALID  = 3;
 	const JSON_ERROR               = 4;
 	const NO_CONTACT_FOUND         = 5;
+	const MISSING_EMAIL            = 6;
 
 
 	const FIELD_NAME = 'newsletter_form';
@@ -29,7 +30,7 @@ class Newsletter {
 	 */
 	public static function hooks() {
 		add_shortcode( 'inline-form', [ __CLASS__, 'render_inline_form' ] );
-		add_action( 'wp_ajax_subscribe_form', [ __CLASS__, 'subscribe_form' ] );
+		add_action( 'wp_ajax_newsletter_subscribe', [ __CLASS__, 'newsletter_subscribe' ] );
 		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_scripts' ] );
 	}
 
@@ -115,15 +116,15 @@ class Newsletter {
 	 */
 	public static function subscribe( $email, $first_name = false, $last_name = false ) {
 		if ( ! $email ) {
-			return;
+			return self::MISSING_EMAIL;
 		}
 
-		$properties = [ 'email' => filter_var( trim( $email ), FILTER_SANITIZE_EMAIL ) ];
+		$properties = [ 'email' => $email ];
 		if ( $first_name ) {
-			$properties['firstname'] = sanitize_text_field( trim( $first_name ) );
+			$properties['firstname'] = $first_name;
 		}
 		if ( $last_name ) {
-			$properties['lastname'] = sanitize_text_field( trim( $last_name ) );
+			$properties['lastname'] = $last_name;
 		}
 		$data = [ 'properties' => $properties ];
 
@@ -137,7 +138,6 @@ class Newsletter {
 
 		$result = json_decode( $raw_result['body'], true );
 		if ( ! $result ) {
-			error_log( json_last_error() ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			return self::JSON_ERROR;
 		}
 		if ( 'error' !== $result['status'] ) {
@@ -158,7 +158,6 @@ class Newsletter {
 
 		$result = json_decode( $raw_result['body'], true );
 		if ( ! $result ) {
-			error_log( json_last_error() ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			return self::JSON_ERROR;
 		}
 
@@ -171,12 +170,30 @@ class Newsletter {
 		}
 	}
 
-	public static function subscribe_form() {
+	/**
+	 * AJAX action handler for newsletter subscription action.
+	 */
+	public static function newsletter_subscribe() {
 		if ( ! check_ajax_referer( self::FIELD_NAME, self::NONCE_KEY, true ) ) {
 			wp_send_json_error();
 		}
 
-		wp_send_json_success();
+		$email      = empty( $_POST['email'] ) ?: trim( sanitize_email( wp_unslash( $_POST['email'] ) ) );
+		$first_name = empty( $_POST['first_name'] ) ?: trim( sanitize_text_field( wp_unslash( $_POST['first_name'] ) ) );
+		$last_name  = empty( $_POST['last_name'] ) ?: trim( sanitize_text_field( wp_unslash( $_POST['last_name'] ) ) );
+
+		$result = self::subscribe( $email, $first_name, $last_name );
+		if ( self::SUBSCRIBE_SUCCESS === $result ) {
+			wp_send_json_success();
+			return;
+		}
+
+		$data = [ 'error_code' => $result ];
+		if ( self::JSON_ERROR === $result ) {
+			$data['error_message'] = json_last_error();
+		}
+
+		wp_send_json_error( $data );
 	}
 
 	/**
