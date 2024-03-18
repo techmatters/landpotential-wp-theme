@@ -8,7 +8,7 @@
 
 ?>
 <form id="inline-subscribe" class="newsletter-subscribe" method="post">
-	<div class="mc4wp-form-fields">
+	<div class="form-fields">
 		<div class="signup-input">
 			<label class="screen-reader">First Name</label><input type="text" name="first_name" placeholder="First name">
 		</div>
