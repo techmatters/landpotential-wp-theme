@@ -20,6 +20,9 @@ class Newsletter {
 	const JSON_ERROR               = 4;
 	const NO_CONTACT_FOUND         = 5;
 	const MISSING_EMAIL            = 6;
+	const RECAPTCHA_MISSING        = 7;
+	const RECAPTCHA_FAILED         = 8;
+	const NONCE_FAILED             = 9;
 
 
 	const FIELD_NAME = 'newsletter_form';
@@ -54,6 +57,7 @@ class Newsletter {
 			[
 				'_ajax_url'   => admin_url( 'admin-ajax.php' ),
 				'_ajax_nonce' => wp_create_nonce( self::FIELD_NAME ),
+				'sitekey'     => Google_Recaptcha::get_site_key(),
 				'success'     => 'Thank you for subscribing to the LandPKS newsletter.',
 				'error_codes' => [
 					self::SUBSCRIBE_ERROR_EXISTING => 'You’re already subscribed to the LandPKS newsletter.',
@@ -61,6 +65,9 @@ class Newsletter {
 					self::JSON_ERROR               => 'Unable to parse JSON result.',
 					self::NO_CONTACT_FOUND         => 'Unable to find valid HubSpot contact ID.',
 					self::MISSING_EMAIL            => 'Please supply an email address',
+					self::RECAPTCHA_MISSING        => 'The ReCATCHA token was missing.',
+					self::RECAPTCHA_FAILED         => 'ReCAPTCHA could not validate you are a human.',
+					self::NONCE_FAILED             => 'WordPress could not validate you are a human.',
 				],
 			]
 		);
@@ -140,7 +147,7 @@ class Newsletter {
 		if ( ! $result ) {
 			return self::JSON_ERROR;
 		}
-		if ( 'error' !== $result['status'] ) {
+		if ( isset( $result['status'] ) && 'error' !== $result['status'] ) {
 			$id = intval( $result['id'] );
 			if ( ! $id ) {
 				return self::NO_CONTACT_FOUND;
@@ -175,7 +182,20 @@ class Newsletter {
 	 */
 	public static function newsletter_subscribe() {
 		if ( ! check_ajax_referer( self::FIELD_NAME, self::NONCE_KEY, true ) ) {
-			wp_send_json_error();
+			wp_send_json_error( [ 'error_code' => self::NONCE_FAILED ] );
+		}
+
+		if ( Google_Recaptcha::is_configured() ) {
+			$token = empty( $_POST['token'] ) ?: trim( sanitize_text_field( wp_unslash( $_POST['token'] ) ) );
+			if ( ! $token ) {
+				wp_send_json_error( [ 'error_code' => self::RECAPTCHA_MISSING ] );
+			}
+			$ip_address = filter_input( INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP );
+
+			$recaptcha_result = Google_Recaptcha::verify( $token, $ip_address );
+			if ( ! $recaptcha_result ) {
+				wp_send_json_error( [ 'error_code' => self::RECAPTCHA_FAILED ] );
+			}
 		}
 
 		$email      = empty( $_POST['email'] ) ?: trim( sanitize_email( wp_unslash( $_POST['email'] ) ) );

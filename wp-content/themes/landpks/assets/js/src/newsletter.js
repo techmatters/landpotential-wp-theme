@@ -1,19 +1,11 @@
 window.lpks = {
-	submitSubscribeForm: function( token ) {
-		console.log( '...submitSubscribeForm()' );
-
-		const tokenField = document.getElementById( 'recaptcha-token' );
-		const subscribeForm = document.getElementById( 'inline-subscribe' );
-		if ( tokenField ) {
-			tokenField.value = token;
-		}
-		if ( subscribeForm ) {
-			console.log( 'submitting underlying item' );
-			subscribeForm.submit();
-		}
+	gcaptchaHandler: function() {
+		grecaptcha.execute( localize.sitekey, {action: 'validate_captcha'} ).then( function( token ) {
+			document.getElementById( 'g-recaptcha-response' ).value = token;
+		} );
 	},
 
-	handleSubmitEvent: function( event ) {
+	processSubscription: function( event ) {
 		event.preventDefault();
 		jQuery.ajax( {
 			type: 'POST',
@@ -21,6 +13,7 @@ window.lpks = {
 			data: {
 				_ajax_nonce: localize._ajax_nonce,
 				action: 'newsletter_subscribe',
+				token: document.getElementById( 'g-recaptcha-response' ).value,
 				email: event.target.querySelector( 'input[name="email"]' ).value,
 				first_name: event.target.querySelector( 'input[name="first_name"]' ).value,
 				last_name: event.target.querySelector( 'input[name="last_name"]' ).value
@@ -30,9 +23,9 @@ window.lpks = {
 					jQuery( event.target.querySelector( '.form-fields' ) ).slideUp();
 					event.target.querySelector( '.message' ).textContent = localize.success;
 				} else {
-					let errorMessage = localize.error_codes[res.data.error_code];
-					if ( 4 === res.data.error_code ) {
-						errorMessage += ` (${res.data.error_message})`;
+					let errorMessage = localize.error_codes[res?.data?.error_code];
+					if ( 4 === res?.data?.error_code ) { // 4 is a JSON parsing error.
+						errorMessage += ` (${res?.data?.error_message})`;
 					}
 					event.target.querySelector( '.message' ).textContent = errorMessage;
 				}
@@ -41,16 +34,13 @@ window.lpks = {
 	},
 
 	setup: function() {
-		console.log( 'setting up...' );
 		const subscribeForm = document.getElementById( 'inline-subscribe' );
 
 		if ( subscribeForm ) {
-			console.log( 'hooked' );
-			window.lpksSubmitSubscribeForm = window.lpks.submitSubscribeForm; // ReCAPTCHA callback needs to be in the global namespace
-			subscribeForm.addEventListener( 'submit', window.lpks.handleSubmitEvent );
+			subscribeForm.addEventListener( 'submit', window.lpks.processSubscription );
+			window.lpks.gcaptchaHandler();
 		}
 	}
 };
 
 document.addEventListener( 'DOMContentLoaded', window.lpks.setup );
-console.log( 'newsletter.js start' );

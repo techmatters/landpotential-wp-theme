@@ -19,8 +19,8 @@
 			<label class="screen-reader">Email address</label><input type="email" name="email" placeholder="Email address *" required="required">
 		</div>
 		<div class="signup-input">
-			<input id="recaptcha-token" type="hidden" name="token" />
-			<input type="submit" class="et_pb_button signup g-recaptcha" value="Get Updates" data-sitekey="<?php echo esc_attr( Google_Recaptcha::get_site_key() ); ?>" data-callback='lpksSubmitSubscribeForm' data-action='submit' />
+			<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+			<input type="submit" class="et_pb_button signup g-recaptcha" value="Get Updates" />
 		</div>
 	</div>
 	<div class="et_pb_bg_layout_dark message"></div>
