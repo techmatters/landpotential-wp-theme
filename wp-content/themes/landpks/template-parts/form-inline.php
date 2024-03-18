@@ -23,4 +23,5 @@
 			<input type="submit" class="et_pb_button signup g-recaptcha" value="Get Updates" data-sitekey="<?php echo esc_attr( Google_Recaptcha::get_site_key() ); ?>" data-callback='lpksSubmitSubscribeForm' data-action='submit' />
 		</div>
 	</div>
+	<div class="et_pb_bg_layout_dark message"></div>
 </form>
