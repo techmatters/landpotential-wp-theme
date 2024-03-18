@@ -32,7 +32,7 @@ class Newsletter {
 	 * Add actions and filters.
 	 */
 	public static function hooks() {
-		add_shortcode( 'inline-form', [ __CLASS__, 'render_inline_form' ] );
+		add_shortcode( 'newsletter-inline-form', [ __CLASS__, 'render_inline_form' ] );
 		add_action( 'wp_ajax_newsletter_subscribe', [ __CLASS__, 'newsletter_subscribe' ] );
 		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_scripts' ] );
 	}
