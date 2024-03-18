@@ -112,7 +112,7 @@ class Google_Recaptcha {
 			}
 		*/
 
-		return $result_json['success'] === true;
+		return true === $result_json['success'];
 	}
 }
 add_action( 'after_setup_theme', [ 'Google_Recaptcha', 'hooks' ] );
