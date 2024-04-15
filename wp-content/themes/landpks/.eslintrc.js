@@ -1,14 +1,14 @@
-{
-	"extends": "wordpress",
-	"rules": {
+module.exports = {
+	extends: "wordpress",
+	rules: {
 		"camelcase": [ "error", { "properties": "never" } ],
 		"yoda": [ "error", "always", { "onlyEquality": true } ],
 		"space-in-parens": ["error", "always", { "exceptions": ["empty"] } ],
 		"eqeqeq": [ "error" ],
 		"indent": ["error", "tab"]
 	},
-	"parserOptions": {
-		"ecmaVersion": 11,
-		"sourceType": "module"
+	parserOptions: {
+		ecmaVersion: 11,
+		sourceType: "module",
 	}
 }
