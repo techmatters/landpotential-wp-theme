@@ -67,7 +67,7 @@ if ( $product_tour_enabled || is_page_template( 'page-template-blank.php' ) ) {
 	$et_slide_header = 'slide' === et_get_option( 'header_style', 'left' ) || 'fullscreen' === et_get_option( 'header_style', 'left' ) ? true : false;
 ?>
 
-	<?php if ( $et_top_info_defined && ! $et_slide_header || is_customize_preview() ) : ?>
+	<?php if ( ( $et_top_info_defined && ! $et_slide_header ) || is_customize_preview() ) : ?>
 		<?php ob_start(); ?>
 		<div id="top-header"<?php echo $et_top_info_defined ? '' : 'style="display: none;"'; ?>>
 			<div class="container clearfix">
