@@ -8,17 +8,28 @@ window.lpks = {
 	processSubscription: function( event ) {
 		event.preventDefault();
 
+		let data = {
+			_ajax_nonce: localize._ajax_nonce,
+			action: 'newsletter_subscribe',
+			token: document.getElementById( 'g-recaptcha-response' ).value,
+			email: event.target.querySelector( 'input[name="email"]' ).value
+		};
+
+		const firstName = event.target.querySelector( 'input[name="first_name"]' );
+		const lastName = event.target.querySelector( 'input[name="last_name"]' );
+
+		if ( firstName ) {
+			data.first_name = firstName.value;
+		}
+
+		if ( lastName ) {
+			data.last_name = lastName.value;
+		}
+
 		jQuery.ajax( {
 			type: 'POST',
 			url: localize._ajax_url,
-			data: {
-				_ajax_nonce: localize._ajax_nonce,
-				action: 'newsletter_subscribe',
-				token: document.getElementById( 'g-recaptcha-response' ).value,
-				email: event.target.querySelector( 'input[name="email"]' ).value,
-				first_name: event.target.querySelector( 'input[name="first_name"]' ).value,
-				last_name: event.target.querySelector( 'input[name="last_name"]' ).value
-			},
+			data: data,
 			success: ( res ) => {
 				if ( true === res.success ) {
 					jQuery( event.target.querySelector( '.form-fields' ) ).slideUp();
