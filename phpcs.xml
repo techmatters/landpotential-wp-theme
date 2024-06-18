@@ -10,7 +10,7 @@
 		<exclude name="Universal.Arrays.DisallowShortArraySyntax.Found" />
 		<exclude name="Universal.Operators.DisallowShortTernary.Found" />
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
-		<exclude name="Generic.Operators.DisallowShortTernary.Found" />
+		<exclude name="WordPress.PHP.DisallowShortTernary.Found" />
 	</rule>
 
 	<rule ref="WordPressVIPMinimum">
@@ -19,6 +19,7 @@
 	</rule>
 
 	<!-- extra for rules -->
+	<rule ref="Generic.Files.EndFileNewline.NotFound" />
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 	<arg name="colors" />
 	<arg value="s" />
