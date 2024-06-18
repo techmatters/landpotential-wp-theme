@@ -46,10 +46,17 @@ class Newsletter {
 
 		wp_enqueue_script(
 			'newsletter',
-			get_stylesheet_directory_uri() . "/assets/js/newsletter.{$ext}.js",
+			plugins_url( "/assets/js/newsletter.{$ext}.js", __DIR__ ),
 			[ 'jquery' ],
-			THEME_VERSION,
+			LPKS_PLUGIN_VERSION,
 			false
+		);
+
+		wp_enqueue_style(
+			'newsletter',
+			plugins_url( "/assets/css/newsletter.{$ext}.css", __DIR__ ),
+			[],
+			LPKS_PLUGIN_VERSION
 		);
 
 		wp_localize_script(
@@ -217,15 +224,25 @@ class Newsletter {
 	}
 
 	/**
+	 * Get the template part in an output buffer and return it
+	 *
+	 * @param string $template_name Template file name.
+	 */
+	public static function get_template_part( $template_name ) {
+		$located = dirname( __DIR__ ) . '/' . $template_name;
+
+		ob_start();
+		require $located; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable
+		return ob_get_clean();
+	}
+
+	/**
 	 * Render inline hubspot form.
 	 *
 	 * @return string
 	 */
 	public static function render_inline_form() {
-		ob_start();
-		get_template_part( 'template-parts/form-inline' );
-
-		return ob_get_clean();
+		return self::get_template_part( 'template-parts/form-inline.php' );
 	}
 }
 

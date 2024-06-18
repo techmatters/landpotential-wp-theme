@@ -1328,13 +1328,6 @@ h5.et_pb_toggle_title {
   padding-bottom: 1em;
 }
 
-/* Email Newsletter Signup */
-div.signup-input {
-  width: 25%;
-  float: left;
-  padding: 0 10px 10px 0;
-}
-
 body.et-db #et-boc .et-l form input[type="submit"].et_pb_button.signup,
 body .et_pb_bg_layout_light form input[type="submit"].et_pb_button.signup {
   width: 100%;
@@ -1615,11 +1608,4 @@ body .et_pb_bg_layout_light form input[type="submit"].et_pb_button.signup:hover 
     display: block;
     width: 100%;
   }
-}
-
-.newsletter-subscribe {
-	.message {
-		clear: both;
-		margin-bottom: 1em;
-	}
 }

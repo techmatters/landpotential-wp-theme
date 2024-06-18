@@ -16,15 +16,15 @@ module.exports = function( grunt ) {
 				sourceMap: true
 			},
 			newsletter: {
-				src: [ 'assets/js/src/newsletter.js' ],
-				dest: 'assets/js/newsletter.src.js'
+				src: [ 'wp-content/plugins/lpks-newsletter/assets/js/src/newsletter.js' ],
+				dest: 'wp-content/plugins/lpks-newsletter/assets/js/newsletter.src.js'
 			}
 		},
 
 		uglify: {
 			all: {
 				files: {
-					'assets/js/newsletter.min.js': [ 'assets/js/newsletter.src.js' ]
+					'wp-content/plugins/lpks-newsletter/assets/js/newsletter.min.js': [ 'wp-content/plugins/lpks-newsletter/assets/js/newsletter.src.js' ]
 				},
 				options: {
 					mangle: {
@@ -36,7 +36,7 @@ module.exports = function( grunt ) {
 		},
 
 		eslint: {
-			src: [ 'assets/js/src/**/*.js' ],
+			src: [ 'wp-content/plugins/lpks-newsletter/assets/js/src/**/*.js' ],
 			options: {
 				overrideConfigFile: '.eslintrc.js',
 				fix: true
@@ -44,18 +44,32 @@ module.exports = function( grunt ) {
 		},
 
 		sass: {
-			theme: {
+			plugin: {
 				options: {
 					implementation: sass,
-					imagePath: 'assets/images',
 					outputStyle: 'expanded',
 					sourceMap: true
 				},
 				files: [ {
 					expand: true,
-					cwd: 'assets/css/src',
+					cwd: 'wp-content/plugins/lpks-newsletter/assets/css/src',
 					src: [ '*.scss', '!_*.scss' ],
-					dest: 'assets/css',
+					dest: 'wp-content/plugins/lpks-newsletter/assets/css',
+					ext: '.src.css'
+				} ]
+			},
+			theme: {
+				options: {
+					implementation: sass,
+					imagePath: 'wp-content/themes/landpks/assets/images',
+					outputStyle: 'expanded',
+					sourceMap: true
+				},
+				files: [ {
+					expand: true,
+					cwd: 'wp-content/themes/landpks/assets/css/src',
+					src: [ '*.scss', '!_*.scss' ],
+					dest: 'wp-content/themes/landpks/assets/css',
 					ext: '.src.css'
 				} ]
 			}
@@ -65,8 +79,21 @@ module.exports = function( grunt ) {
 		 * Runs postcss plugins
 		 */
 		postcss: {
-
-			/* Runs postcss + autoprefixer on the minified CSS. */
+			plugin: {
+				options: {
+					map: false,
+					processors: [
+						require( 'autoprefixer' )()
+					]
+				},
+				files: [ {
+					expand: true,
+					cwd: 'wp-content/plugins/lpks-newsletter/assets/css',
+					src: [ '*.src.css' ],
+					dest: 'wp-content/plugins/lpks-newsletter/assets/css',
+					ext: '.src.css'
+				} ]
+			},
 			theme: {
 				options: {
 					map: false,
@@ -76,21 +103,30 @@ module.exports = function( grunt ) {
 				},
 				files: [ {
 					expand: true,
-					cwd: 'assets/css',
+					cwd: 'wp-content/themes/landpks/assets/css',
 					src: [ '*.src.css' ],
-					dest: 'assets/css',
+					dest: 'wp-content/themes/landpks/assets/css',
 					ext: '.src.css'
 				} ]
 			}
 		},
 
 		cssmin: {
+			plugin: {
+				files: [ {
+					expand: true,
+					cwd: 'wp-content/plugins/lpks-newsletter/assets/css',
+					src: [ '*.src.css' ],
+					dest: 'wp-content/plugins/lpks-newsletter/assets/css',
+					ext: '.min.css'
+				} ]
+			},
 			theme: {
 				files: [ {
 					expand: true,
-					cwd: 'assets/css',
+					cwd: 'wp-content/themes/landpks/assets/css',
 					src: [ '*.src.css' ],
-					dest: 'assets/css',
+					dest: 'wp-content/themes/landpks/assets/css',
 					ext: '.min.css'
 				} ]
 			}
@@ -98,12 +134,12 @@ module.exports = function( grunt ) {
 
 		watch: {
 			php: {
-				files: [ '*.php', 'template-parts/**/*.php', 'includes/**/*.php', '!vendor/**' ],
+				files: [ 'wp-content/**/*.php', 'wp-content/**/template-parts/**/*.php', 'wp-content/**/includes/**/*.php', '!vendor/**', '!node_modules/**' ],
 				tasks: [ 'phplint', 'phpcbf' ]
 			},
 
 			css: {
-				files: [ 'assets/css/src/**/*.scss' ],
+				files: [ 'wp-content/**/assets/css/src/**/*.scss' ],
 				tasks: [ 'css' ],
 				options: {
 					debounceDelay: 500
@@ -111,7 +147,7 @@ module.exports = function( grunt ) {
 			},
 
 			scripts: {
-				files: [ 'assets/js/src/**/*.js' ],
+				files: [ 'wp-content/**/assets/js/src/**/*.js' ],
 				tasks: [ 'js' ],
 				options: {
 					debounceDelay: 500
@@ -123,7 +159,7 @@ module.exports = function( grunt ) {
 			phpArgs: {
 				'-lf': null
 			},
-			files: [ '*.php', 'template-parts/**/*.php', 'includes/**/*.php' ]
+			files: [ 'wp-content/**/*.php', 'wp-content/**/template-parts/**/*.php', 'wp-content/**/includes/**/*.php' ]
 		},
 
 		git_modified_files: {
@@ -148,7 +184,7 @@ module.exports = function( grunt ) {
 				noPatch: false
 			},
 			files: {
-				src: [ '*.php', 'template-parts/**/*.php', 'includes/**/*.php' ]
+				src: [ 'wp-content/**/*.php', 'wp-content/**/template-parts/**/*.php', 'wp-content/**/includes/**/*.php' ]
 			}
 		},
 
