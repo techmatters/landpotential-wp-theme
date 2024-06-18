@@ -1,1 +1,1 @@
-div.signup-input{width:25%;float:left;padding:0 10px 10px 0}.newsletter-subscribe .message{clear:both;margin-bottom:1em}
+div.signup-input{width:25%;float:left;padding:0 10px 10px 0}.newsletter-subscribe .message{clear:both;margin-bottom:1em}.newsletter-subscribe.email-only label{display:block;font-weight:700}.newsletter-subscribe.email-only input[type=email]{width:100%}.newsletter-subscribe.email-only input[type=submit]{font-weight:700;background-color:var(--accent);border-radius:4px;margin-top:1em}
