@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a11982cf73c7ab3dfc98fa3295969e1f",
+    "content-hash": "75b6770bd3a62446852ae266f2bd9574",
     "packages": [
         {
             "name": "pablo-sg-pacheco/wp-namespace-autoloader",
