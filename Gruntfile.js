@@ -38,7 +38,7 @@ module.exports = function( grunt ) {
 		eslint: {
 			src: [ 'wp-content/plugins/lpks-newsletter/assets/js/src/**/*.js' ],
 			options: {
-				overrideConfigFile: '.eslintrc.js',
+				overrideConfigFile: 'eslint.config.mjs',
 				fix: true
 			}
 		},
