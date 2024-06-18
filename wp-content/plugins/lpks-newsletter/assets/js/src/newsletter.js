@@ -53,7 +53,9 @@ window.lpks = {
 
 		if ( subscribeForm ) {
 			subscribeForm.addEventListener( 'submit', window.lpks.processSubscription );
-			grecaptcha.ready( window.lpks.gcaptchaHandler );
+			if ( window.grecaptcha ) {
+				grecaptcha.ready( window.lpks.gcaptchaHandler );
+			}
 		}
 	}
 };
