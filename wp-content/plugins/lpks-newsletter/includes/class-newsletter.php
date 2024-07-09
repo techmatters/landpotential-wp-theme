@@ -49,7 +49,7 @@ class Newsletter {
 			'newsletter',
 			plugins_url( "/assets/js/newsletter.{$ext}.js", __DIR__ ),
 			[ 'jquery' ],
-			LPKS_PLUGIN_VERSION,
+			LPKS_NEWSLETTER_PLUGIN_VERSION,
 			false
 		);
 
@@ -57,7 +57,7 @@ class Newsletter {
 			'newsletter',
 			plugins_url( "/assets/css/newsletter.{$ext}.css", __DIR__ ),
 			[],
-			LPKS_PLUGIN_VERSION
+			LPKS_NEWSLETTER_PLUGIN_VERSION
 		);
 
 		wp_localize_script(

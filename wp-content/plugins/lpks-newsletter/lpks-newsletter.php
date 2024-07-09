@@ -19,7 +19,7 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-define( 'LPKS_PLUGIN_VERSION', '1.0.0' );
+define( 'LPKS_NEWSLETTER_PLUGIN_VERSION', '1.0.0' );
 
 require_once __DIR__ . '/includes/class-newsletter.php';
 require_once __DIR__ . '/includes/settings/class-settings.php';

@@ -19,6 +19,6 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-define( 'LPKS_PLUGIN_VERSION', '1.0.0' );
+define( 'LPKS_STYLES_PLUGIN_VERSION', '1.0.0' );
 
 require_once __DIR__ . '/includes/class-styles.php';

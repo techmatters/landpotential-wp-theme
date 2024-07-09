@@ -29,7 +29,7 @@ class Styles {
 			'newsletter',
 			plugins_url( "/assets/js/main.{$ext}.js", __DIR__ ),
 			[ 'jquery' ],
-			LPKS_PLUGIN_VERSION,
+			LPKS_STYLES_PLUGIN_VERSION,
 			false
 		);
 
@@ -37,7 +37,7 @@ class Styles {
 			'newsletter',
 			plugins_url( "/assets/css/main.{$ext}.css", __DIR__ ),
 			[],
-			LPKS_PLUGIN_VERSION
+			LPKS_STYLES_PLUGIN_VERSION
 		);
 	}
 }
