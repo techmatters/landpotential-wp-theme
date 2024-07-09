@@ -26,7 +26,7 @@ class Styles {
 		$ext = defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? 'src' : 'min';
 
 		wp_enqueue_script(
-			'newsletter',
+			'styles',
 			plugins_url( "/assets/js/main.{$ext}.js", __DIR__ ),
 			[ 'jquery' ],
 			LPKS_STYLES_PLUGIN_VERSION,
@@ -34,7 +34,7 @@ class Styles {
 		);
 
 		wp_enqueue_style(
-			'newsletter',
+			'styles',
 			plugins_url( "/assets/css/main.{$ext}.css", __DIR__ ),
 			[],
 			LPKS_STYLES_PLUGIN_VERSION
