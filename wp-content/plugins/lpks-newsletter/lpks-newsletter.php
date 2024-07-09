@@ -1,12 +1,12 @@
 <?php
 /**
- * LandPKS WordPress plugin.
+ * LandPKS Newsletter WordPress plugin.
  *
  * @package LPKS
  */
 
 /**
- * Plugin Name:       LandPKS
+ * Plugin Name:       LandPKS Newsletter
  * Plugin URI:        https://landpotential.org/
  * Description:       LandPKS Newsletter
  * Author:            Tech Matters, paulschreiber
