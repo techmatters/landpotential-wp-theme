@@ -1,5 +1,4 @@
 module.exports = function( grunt ) {
-
 	var sass = require( 'sass' );
 
 	// Load all grunt tasks
@@ -18,13 +17,22 @@ module.exports = function( grunt ) {
 			newsletter: {
 				src: [ 'wp-content/plugins/lpks-newsletter/assets/js/src/newsletter.js' ],
 				dest: 'wp-content/plugins/lpks-newsletter/assets/js/newsletter.src.js'
+			},
+			styles: {
+				src: [ 'wp-content/plugins/lpks-styles/assets/js/src/main.js' ],
+				dest: 'wp-content/plugins/lpks-styles/assets/js/main.src.js'
 			}
 		},
 
 		uglify: {
 			all: {
 				files: {
-					'wp-content/plugins/lpks-newsletter/assets/js/newsletter.min.js': [ 'wp-content/plugins/lpks-newsletter/assets/js/newsletter.src.js' ]
+					'wp-content/plugins/lpks-newsletter/assets/js/newsletter.min.js': [
+						'wp-content/plugins/lpks-newsletter/assets/js/newsletter.src.js'
+					],
+					'wp-content/plugins/lpks-styles/assets/js/main.min.js': [
+						'wp-content/plugins/lpks-styles/assets/js/main.src.js'
+					]
 				},
 				options: {
 					mangle: {
@@ -36,7 +44,7 @@ module.exports = function( grunt ) {
 		},
 
 		eslint: {
-			src: [ 'wp-content/plugins/lpks-newsletter/assets/js/src/**/*.js' ],
+			src: [ 'Gruntfile.js', 'wp-content/plugins/lpks-**/assets/js/src/**/*.js' ],
 			options: {
 				overrideConfigFile: 'eslint.config.mjs',
 				fix: true
@@ -44,19 +52,37 @@ module.exports = function( grunt ) {
 		},
 
 		sass: {
-			plugin: {
+			newsletter: {
 				options: {
 					implementation: sass,
 					outputStyle: 'expanded',
 					sourceMap: true
 				},
-				files: [ {
-					expand: true,
-					cwd: 'wp-content/plugins/lpks-newsletter/assets/css/src',
-					src: [ '*.scss', '!_*.scss' ],
-					dest: 'wp-content/plugins/lpks-newsletter/assets/css',
-					ext: '.src.css'
-				} ]
+				files: [
+					{
+						expand: true,
+						cwd: 'wp-content/plugins/lpks-newsletter/assets/css/src',
+						src: [ '*.scss', '!_*.scss' ],
+						dest: 'wp-content/plugins/lpks-newsletter/assets/css',
+						ext: '.src.css'
+					}
+				]
+			},
+			styles: {
+				options: {
+					implementation: sass,
+					outputStyle: 'expanded',
+					sourceMap: true
+				},
+				files: [
+					{
+						expand: true,
+						cwd: 'wp-content/plugins/lpks-styles/assets/css/src',
+						src: [ '*.scss', '!_*.scss' ],
+						dest: 'wp-content/plugins/lpks-styles/assets/css',
+						ext: '.src.css'
+					}
+				]
 			},
 			theme: {
 				options: {
@@ -65,13 +91,15 @@ module.exports = function( grunt ) {
 					outputStyle: 'expanded',
 					sourceMap: true
 				},
-				files: [ {
-					expand: true,
-					cwd: 'wp-content/themes/landpks/assets/css/src',
-					src: [ '*.scss', '!_*.scss' ],
-					dest: 'wp-content/themes/landpks/assets/css',
-					ext: '.src.css'
-				} ]
+				files: [
+					{
+						expand: true,
+						cwd: 'wp-content/themes/landpks/assets/css/src',
+						src: [ '*.scss', '!_*.scss' ],
+						dest: 'wp-content/themes/landpks/assets/css',
+						ext: '.src.css'
+					}
+				]
 			}
 		},
 
@@ -79,62 +107,98 @@ module.exports = function( grunt ) {
 		 * Runs postcss plugins
 		 */
 		postcss: {
-			plugin: {
+			newsletter: {
 				options: {
 					map: false,
-					processors: [
-						require( 'autoprefixer' )()
-					]
+					processors: [ require( 'autoprefixer' )() ]
 				},
-				files: [ {
-					expand: true,
-					cwd: 'wp-content/plugins/lpks-newsletter/assets/css',
-					src: [ '*.src.css' ],
-					dest: 'wp-content/plugins/lpks-newsletter/assets/css',
-					ext: '.src.css'
-				} ]
+				files: [
+					{
+						expand: true,
+						cwd: 'wp-content/plugins/lpks-newsletter/assets/css',
+						src: [ '*.src.css' ],
+						dest: 'wp-content/plugins/lpks-newsletter/assets/css',
+						ext: '.src.css'
+					}
+				]
+			},
+			styles: {
+				options: {
+					map: false,
+					processors: [ require( 'autoprefixer' )() ]
+				},
+				files: [
+					{
+						expand: true,
+						cwd: 'wp-content/plugins/lpks-styles/assets/css',
+						src: [ '*.src.css' ],
+						dest: 'wp-content/plugins/lpks-styles/assets/css',
+						ext: '.src.css'
+					}
+				]
 			},
 			theme: {
 				options: {
 					map: false,
-					processors: [
-						require( 'autoprefixer' )()
-					]
+					processors: [ require( 'autoprefixer' )() ]
 				},
-				files: [ {
-					expand: true,
-					cwd: 'wp-content/themes/landpks/assets/css',
-					src: [ '*.src.css' ],
-					dest: 'wp-content/themes/landpks/assets/css',
-					ext: '.src.css'
-				} ]
+				files: [
+					{
+						expand: true,
+						cwd: 'wp-content/themes/landpks/assets/css',
+						src: [ '*.src.css' ],
+						dest: 'wp-content/themes/landpks/assets/css',
+						ext: '.src.css'
+					}
+				]
 			}
 		},
 
 		cssmin: {
-			plugin: {
-				files: [ {
-					expand: true,
-					cwd: 'wp-content/plugins/lpks-newsletter/assets/css',
-					src: [ '*.src.css' ],
-					dest: 'wp-content/plugins/lpks-newsletter/assets/css',
-					ext: '.min.css'
-				} ]
+			newsletter: {
+				files: [
+					{
+						expand: true,
+						cwd: 'wp-content/plugins/lpks-newsletter/assets/css',
+						src: [ '*.src.css' ],
+						dest: 'wp-content/plugins/lpks-newsletter/assets/css',
+						ext: '.min.css'
+					}
+				]
+			},
+			styles: {
+				files: [
+					{
+						expand: true,
+						cwd: 'wp-content/plugins/lpks-styles/assets/css',
+						src: [ '*.src.css' ],
+						dest: 'wp-content/plugins/lpks-styles/assets/css',
+						ext: '.min.css'
+					}
+				]
 			},
 			theme: {
-				files: [ {
-					expand: true,
-					cwd: 'wp-content/themes/landpks/assets/css',
-					src: [ '*.src.css' ],
-					dest: 'wp-content/themes/landpks/assets/css',
-					ext: '.min.css'
-				} ]
+				files: [
+					{
+						expand: true,
+						cwd: 'wp-content/themes/landpks/assets/css',
+						src: [ '*.src.css' ],
+						dest: 'wp-content/themes/landpks/assets/css',
+						ext: '.min.css'
+					}
+				]
 			}
 		},
 
 		watch: {
 			php: {
-				files: [ 'wp-content/**/*.php', 'wp-content/**/template-parts/**/*.php', 'wp-content/**/includes/**/*.php', '!vendor/**', '!node_modules/**' ],
+				files: [
+					'wp-content/**/*.php',
+					'wp-content/**/template-parts/**/*.php',
+					'wp-content/**/includes/**/*.php',
+					'!vendor/**',
+					'!node_modules/**'
+				],
 				tasks: [ 'phplint', 'phpcbf' ]
 			},
 
@@ -159,7 +223,11 @@ module.exports = function( grunt ) {
 			phpArgs: {
 				'-lf': null
 			},
-			files: [ 'wp-content/**/*.php', 'wp-content/**/template-parts/**/*.php', 'wp-content/**/includes/**/*.php' ]
+			files: [
+				'wp-content/**/*.php',
+				'wp-content/**/template-parts/**/*.php',
+				'wp-content/**/includes/**/*.php'
+			]
 		},
 
 		git_modified_files: {
@@ -184,30 +252,40 @@ module.exports = function( grunt ) {
 				noPatch: false
 			},
 			files: {
-				src: [ 'wp-content/**/*.php', 'wp-content/**/template-parts/**/*.php', 'wp-content/**/includes/**/*.php' ]
+				src: [
+					'wp-content/**/*.php',
+					'wp-content/**/template-parts/**/*.php',
+					'wp-content/**/includes/**/*.php'
+				]
 			}
-		},
-
-	} );
-
-
-	// Set a default, so if phpcs is run directly it scans everything
-	grunt.config.set( 'gmf.filtered', [ '**/*.php', '!vendor/**', '!node_modules/**' ] );
-	grunt.registerTask( 'precommit', [ 'git_modified_files', 'maybe-phpcs' ] );
-	grunt.registerTask( 'maybe-phpcs', 'Only run phpcs if git_modified_files has found changes.', function() {
-
-		// Check all, because there's no default set for all and we can see if we have files
-		var allModified = grunt.config.get( 'gmf.all' );
-		var matches = allModified.filter( function( str ) {
-			return ( -1 !== str.search( /\.php$/ ) );
-		} );
-
-		if ( ! matches.length ) {
-			grunt.log.writeln( 'No php files to sniff. Skipping phpcs.' );
-		} else {
-			grunt.task.run( 'phpcs' );
 		}
 	} );
+
+	// Set a default, so if phpcs is run directly it scans everything
+	grunt.config.set( 'gmf.filtered', [
+		'**/*.php',
+		'!vendor/**',
+		'!node_modules/**'
+	] );
+	grunt.registerTask( 'precommit', [ 'git_modified_files', 'maybe-phpcs' ] );
+	grunt.registerTask(
+		'maybe-phpcs',
+		'Only run phpcs if git_modified_files has found changes.',
+		function() {
+
+			// Check all, because there's no default set for all and we can see if we have files
+			var allModified = grunt.config.get( 'gmf.all' );
+			var matches = allModified.filter( function( str ) {
+				return -1 !== str.search( /\.php$/ );
+			} );
+
+			if ( ! matches.length ) {
+				grunt.log.writeln( 'No php files to sniff. Skipping phpcs.' );
+			} else {
+				grunt.task.run( 'phpcs' );
+			}
+		}
+	);
 
 	// PHP Only
 	grunt.registerTask( 'php', [ 'phplint', 'phpcs' ] );
