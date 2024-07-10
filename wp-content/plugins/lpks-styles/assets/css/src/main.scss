@@ -42,7 +42,23 @@ $border: #ddd;
 	}
 }
 
-body .widget-area .secondary-navigation li {
-	margin-left: 1em;
-	width: calc(100% - 1em);
+// help navigation + sticky footer
+body.secondary-nav-left-sidebar {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	.main-nav {
+		width: 100%;
+	}
+
+	.container.grid-container {
+		flex: 1;
+		width: 100%;
+	}
+
+	.widget-area .secondary-navigation li li {
+		margin-left: 1em;
+		width: calc(100% - 1em);
+	}
 }
