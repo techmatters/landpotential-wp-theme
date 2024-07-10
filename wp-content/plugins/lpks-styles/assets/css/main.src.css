@@ -32,7 +32,19 @@
     display: none !important;
   }
 }
-body .widget-area .secondary-navigation li {
+body.secondary-nav-left-sidebar {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+body.secondary-nav-left-sidebar .main-nav {
+  width: 100%;
+}
+body.secondary-nav-left-sidebar .container.grid-container {
+  flex: 1;
+  width: 100%;
+}
+body.secondary-nav-left-sidebar .widget-area .secondary-navigation li li {
   margin-left: 1em;
   width: calc(100% - 1em);
 }
