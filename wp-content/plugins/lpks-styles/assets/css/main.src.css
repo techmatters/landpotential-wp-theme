@@ -40,6 +40,9 @@ body.secondary-nav-left-sidebar {
 body.secondary-nav-left-sidebar .main-nav {
   width: 100%;
 }
+body.secondary-nav-left-sidebar .main-nav li {
+  display: inline-block;
+}
 body.secondary-nav-left-sidebar .container.grid-container {
   flex: 1;
   width: 100%;
