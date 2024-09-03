@@ -50,6 +50,9 @@ body.secondary-nav-left-sidebar {
 
 	.main-nav {
 		width: 100%;
+		li {
+			display: inline-block;
+		}
 	}
 
 	.container.grid-container {
