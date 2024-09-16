@@ -1,6 +1,6 @@
 {
 	"name": "techmatters/landpks-wp-theme",
-	"description": "Terraso WordPress theme",
+	"description": "LandPKS WordPress theme",
 	"type": "wordpress-theme",
 	"require": {
 		"pablo-sg-pacheco/wp-namespace-autoloader": "dev-master"
