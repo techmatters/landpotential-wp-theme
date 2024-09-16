@@ -120,7 +120,7 @@ class Newsletter {
 	 *    this call will fail. That is fine.
 	 * 2. Attempt to subscribe the user to a list.
 	 *
-	 * You cannot do this ina. single API call, i.e. call the add-to-list call directly. If you do this
+	 * You cannot do this in a single API call, i.e. call the add-to-list call directly. If you do this
 	 * and the email address is not in HubSpot's database, it will fail.
 	 *
 	 * Note that (1) uses v3 of Hubspot's API and (2) uses v1. As of 2024-03-15, there is
