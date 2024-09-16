@@ -58,7 +58,7 @@ class Newsletter_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => 'API Authorization Token',
 				'label_for'   => 'lpks_recaptcha_site_key',
-				'args'        => [ 'lpks_hubspot_token' => 'sanitize_text_field' ],
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 			],
 			[
 				'uid'         => 'lpks_recaptcha_site_key',
