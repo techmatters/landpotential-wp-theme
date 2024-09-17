@@ -51,6 +51,18 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		// use legacy color notation until sass gets updated.
+		// https://stackoverflow.com/questions/66825515/getting-error-in-css-with-rgb0-0-0-15
+		// https://stylelint.io/user-guide/rules/list/color-function-notation/
+		stylelint: {
+			src: [ 'wp-content/plugins/lpks-newsletter/assets/css/src/*.scss' ],
+			options: {
+				customSyntax: 'postcss-scss',
+				fix: true,
+				configFile: '.stylelintrc.json'
+			}
+		},
+
 		sass: {
 			newsletter: {
 				options: {
@@ -294,7 +306,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'js', [ 'eslint', 'concat', 'uglify' ] );
 
 	// CSS Only
-	grunt.registerTask( 'css', [ 'sass', 'postcss', 'cssmin' ] );
+	grunt.registerTask( 'css', [ 'stylelint', 'sass', 'postcss', 'cssmin' ] );
 
 	// CSS & JS Only
 	grunt.registerTask( 'css-js', [ 'css', 'js' ] );
