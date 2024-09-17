@@ -8,7 +8,7 @@
 /**
  * Plugin Name:       LandPKS Styles
  * Plugin URI:        https://landpotential.org/
- * Description:       LandPKS Newsletter
+ * Description:       LandPKS Styles
  * Author:            Tech Matters, paulschreiber
  * Text Domain:       lpks
  * Domain Path:       /languages
