@@ -204,13 +204,7 @@ module.exports = function( grunt ) {
 
 		watch: {
 			php: {
-				files: [
-					'wp-content/**/*.php',
-					'wp-content/**/template-parts/**/*.php',
-					'wp-content/**/includes/**/*.php',
-					'!vendor/**',
-					'!node_modules/**'
-				],
+				files: [ 'wp-content/**/*.php', '!vendor/**', '!node_modules/**' ],
 				tasks: [ 'phplint', 'phpcbf' ]
 			},
 
@@ -235,11 +229,7 @@ module.exports = function( grunt ) {
 			phpArgs: {
 				'-lf': null
 			},
-			files: [
-				'wp-content/**/*.php',
-				'wp-content/**/template-parts/**/*.php',
-				'wp-content/**/includes/**/*.php'
-			]
+			files: [ 'wp-content/**/*.php' ]
 		},
 
 		git_modified_files: {
@@ -264,11 +254,7 @@ module.exports = function( grunt ) {
 				noPatch: false
 			},
 			files: {
-				src: [
-					'wp-content/**/*.php',
-					'wp-content/**/template-parts/**/*.php',
-					'wp-content/**/includes/**/*.php'
-				]
+				src: [ 'wp-content/**/*.php' ]
 			}
 		}
 	} );
