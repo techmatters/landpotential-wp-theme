@@ -17,6 +17,9 @@ class Styles {
 	 */
 	public static function hooks() {
 		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_scripts' ] );
+		
+		// GeneratePress does not have these tools enabled by default, since it is not a block theme.
+		add_theme_support( 'appearance-tools' );
 	}
 
 	/**
