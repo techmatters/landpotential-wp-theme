@@ -10,7 +10,7 @@
 <form id="inline-subscribe" class="newsletter-subscribe email-only" method="post">
 	<div class="form-fields">
 		<label for="inline-subscribe-email">Email address:</label>
-		<input id="inline-subscribe-email" type="email" name="email" placeholder="Email address" required="required">
+		<input id="inline-subscribe-email" type="email" name="email" placeholder="email@example.com" required="required">
 	</div>
 	<div class="signup-input">
 		<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
