@@ -65,3 +65,9 @@ body.secondary-nav-left-sidebar {
 		width: calc(100% - 1em);
 	}
 }
+
+// Used with the "Article Archive Loop Template" and
+// "Topic Archive Loop Template" and "Related Reading" pattern
+.archive-card a {
+	text-decoration: none;
+}
