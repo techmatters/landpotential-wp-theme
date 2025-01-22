@@ -51,3 +51,7 @@ body.secondary-nav-left-sidebar .widget-area .secondary-navigation li li {
   margin-left: 1em;
   width: calc(100% - 1em);
 }
+
+.archive-card a {
+  text-decoration: none;
+}
