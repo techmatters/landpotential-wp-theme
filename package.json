@@ -36,6 +36,6 @@
 		"grunt-stylelint": "^0.20.1",
 		"matchdep": "^2.0.0",
 		"sass": "^1.83.4",
-		"stylelint-config-standard": "^36.0.1"
+		"stylelint-config-standard": "^37.0.0"
 	}
 }
